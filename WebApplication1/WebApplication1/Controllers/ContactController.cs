@@ -18,20 +18,7 @@ namespace WebApplication1.Controllers
         }
         public Contact[] Get()
         {
-            return contactRepository.GetAllContacts();
-            //return new Contact[]
-            //{
-            //    new Contact
-            //    {
-            //        Id = 1,
-            //        Name = "Glenn great Bloke"
-            //    },
-            //    new Contact
-            //    {
-            //        Id = 2,
-            //        Name = "Dan Roth"
-            //    }
-            //};
+            return this.contactRepository.GetAllContacts();
         }
     }
 

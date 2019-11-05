@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Web;
 using WebApplication1.Models;
+
 namespace WebApplication1.Services
 {
     public class ContactRepository
@@ -11,22 +13,22 @@ namespace WebApplication1.Services
         {
             var ctx = HttpContext.Current;
 
-            if(ctx != null)
+            if (ctx != null)
             {
                 if (ctx.Cache[CacheKey] == null)
                 {
                     var contacts = new Contact[]
                     {
-                        new Contact
-                        {
-                            Id = 1,
-                            Name = "Glenn best Block"
-                        },
-                        new Contact
-                        {
-                            Id = 2, Name = "Dan Roth"
-                        }
+                new Contact
+                {
+                    Id = 1, Name = "Glenn Block"
+                },
+                new Contact
+                {
+                    Id = 2, Name = "Dan Roth"
+                }
                     };
+
                     ctx.Cache[CacheKey] = contacts;
                 }
             }
@@ -42,12 +44,13 @@ namespace WebApplication1.Services
             }
 
             return new Contact[]
-            {
-                new Contact
                 {
-                    Id = 0, Name = "Placeholder"
-                }
-            };
+            new Contact
+            {
+                Id = 0,
+                Name = "Placeholder"
+            }
+                };
             //return new Contact[]
             //{
             //    new Contact
@@ -82,6 +85,7 @@ namespace WebApplication1.Services
                     return false;
                 }
             }
+
             return false;
         }
     }
